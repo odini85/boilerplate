@@ -1,0 +1,3 @@
+@mixin border-line($width, $style) {
+  border: $width $style #000;
+}

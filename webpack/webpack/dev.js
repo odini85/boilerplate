@@ -1,18 +1,20 @@
-const { merge } = require("webpack-merge");
-const path = require("path");
-const baseConfig = require("./base.js");
+const path = require('path');
 
-const config = {
-  mode: "development",
+module.exports = {
+  mode: 'development',
   devServer: {
     open: true,
     static: {
       directory: path.join(__dirname),
     },
     client: {
-      overlay: true,
+      // 오류 또는 경고가 있는경우 브라우저 전체 오버레이
+      overlay: {
+        // 오류 표시
+        errors: true,
+      },
+      // 브라우저 컴파일 진행율
+      progress: true,
     },
   },
 };
-
-module.exports = merge(baseConfig, config);

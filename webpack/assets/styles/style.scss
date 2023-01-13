@@ -1,0 +1,5 @@
+body {
+  background: $color;
+
+  @include border-line(4px, dotted);
+}

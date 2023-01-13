@@ -1,26 +1,22 @@
-const { merge } = require("webpack-merge");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const TerserWebpackPlugin = require("terser-webpack-plugin");
-const baseConfig = require("./base.js");
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserWebpackPlugin = require('terser-webpack-plugin');
 
-const config = {
-  mode: "production",
+module.exports = {
+  mode: 'production',
   optimization: {
     minimize: true,
     minimizer: [new CssMinimizerPlugin(), new TerserWebpackPlugin()],
     runtimeChunk: {
-      name: "runtime",
+      name: 'runtime',
     },
     splitChunks: {
       cacheGroups: {
         commons: {
           test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
-          chunks: "all",
+          name: 'vendors',
+          chunks: 'all',
         },
       },
     },
   },
 };
-
-module.exports = merge(baseConfig, config);
