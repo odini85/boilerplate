@@ -1,0 +1,13 @@
+body {
+  background: $color;
+
+  @include border-line(4px, dotted);
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: $color;
+  }
+}
