@@ -8,9 +8,7 @@ import '@assets/styles/style.scss';
 
 const test = 1;
 
-const a = BUILD_AT;
-
-console.log(a);
+console.log({ BUILD_AT, API_BASE_URL });
 
 fn();
 
@@ -20,3 +18,9 @@ document.body.appendChild(img);
 const img2 = document.createElement('img');
 img2.src = smallImage1;
 document.body.appendChild(img2);
+
+const a = (v1: string, v2: string) => `v1 + v2 : ${v1 + v2}`;
+
+const template = `template literal __  ${a('123', '456')}`;
+
+console.log(template);

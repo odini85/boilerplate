@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve:dev": "webpack serve --config webpack.config.js --env env=local mode=dev",
-    "serve:live": "webpack serve --config webpack.config.js --env env=local mode=dev",
-    "build": "webpack build --config webpack.config.js --env env=local mode=production"
+    "serve:local": "webpack serve --config webpack.config.js --env env=local mode=dev",
+    "serve:dev": "webpack serve --config webpack.config.js --env env=dev mode=dev",
+    "serve:live": "webpack serve --config webpack.config.js --env env=live mode=dev",
+    "build:local": "webpack build --config webpack.config.js --env env=dev mode=production",
+    "build:dev": "webpack build --config webpack.config.js --env env=local mode=production",
+    "build:live": "webpack build --config webpack.config.js --env env=live mode=production"
   },
   "keywords": [],
   "author": "",
