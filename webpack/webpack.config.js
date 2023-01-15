@@ -20,7 +20,7 @@ module.exports = (env) => {
     plugins: [
       new ForkTsCheckerWebpackPlugin(),
       new MiniCssExtractPlugin({
-        filename: '[contenthash].css',
+        filename: '[name].[contenthash].css',
       }),
       new HtmlWebpackPlugin({
         template: './public/index.html',
@@ -63,15 +63,19 @@ module.exports = (env) => {
           use: [
             IS_PRODUCTION_MODE ? MiniCssExtractPlugin.loader : 'style-loader',
             { loader: 'css-loader', options: { sourceMap: true } },
-            'postcss-loader',
+            {
+              loader: 'postcss-loader',
+              options: {
+                postcssOptions: {
+                  plugins: [['postcss-preset-env']],
+                },
+              },
+            },
             'sass-loader',
             {
               loader: 'sass-resources-loader',
               options: {
-                resources: [
-                  './assets/styles/_variables.scss',
-                  './assets/styles/_mixins.scss',
-                ],
+                resources: ['./assets/styles/_variables.scss', './assets/styles/_mixins.scss'],
               },
             },
           ],
@@ -83,9 +87,7 @@ module.exports = (env) => {
               loader: 'file-loader',
               options: {
                 outputPath: 'static',
-                name: IS_PRODUCTION_MODE
-                  ? '[name]-[contenthash].[ext]'
-                  : '[path][name].[ext]',
+                name: '[name].[contenthash].[ext]',
               },
             },
           ],

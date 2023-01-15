@@ -1,6 +1,6 @@
 module.exports = {
   trailingComma: 'all',
-  printWidth: 80,
+  printWidth: 120,
   singleQuote: true,
   bracketSpacing: true,
   tabWidth: 2,
