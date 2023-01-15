@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-
-import ErrorBoundary from './common/ErrorBoundary';
+import { GlobalErrorBoundary } from '@src/common/ErrorBoundary';
 
 const Counter: React.FC<{ initialCount: number }> = ({ initialCount }) => {
   const [count, setCount] = useState(initialCount);
-  if (count - initialCount > 5) {
+  if (count - initialCount > 3) {
     throw Error('error');
   }
   return (
@@ -22,11 +21,11 @@ const Counter: React.FC<{ initialCount: number }> = ({ initialCount }) => {
 
 const App: React.FC = () => {
   return (
-    <ErrorBoundary>
+    <GlobalErrorBoundary>
       <Counter initialCount={10} />
       <Counter initialCount={20} />
       <Counter initialCount={30} />
-    </ErrorBoundary>
+    </GlobalErrorBoundary>
   );
 };
 

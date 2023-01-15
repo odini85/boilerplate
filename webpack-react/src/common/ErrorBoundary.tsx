@@ -12,7 +12,7 @@ interface State {
 
 // @see https://codepen.io/gaearon/pen/wqvxGa?editors=0110
 // @see https://fe-developers.kakaoent.com/2022/221110-error-boundary/
-class ErrorBoundary extends React.Component<Props, State> {
+export class GlobalErrorBoundary extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = { error: null, errorInfo: null, shouldHandleError: false };
@@ -63,5 +63,3 @@ class ErrorBoundary extends React.Component<Props, State> {
     return this.props.children;
   }
 }
-
-export default ErrorBoundary;
