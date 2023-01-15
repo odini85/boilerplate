@@ -16,7 +16,6 @@ const Counter: React.FC<{ initialCount: number }> = ({ initialCount }) => {
 };
 
 const App: React.FC = () => {
-  const [count, setCount] = useState(0);
   return (
     <div>
       <Counter initialCount={10} />
